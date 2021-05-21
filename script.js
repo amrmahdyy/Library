@@ -1,19 +1,4 @@
-// const body=document.querySelector('body');
-// const greeting=document.createElement('p');
-// greeting.textContent="Hey I'm red";
-// const blueHead=document.createElement('h3');
-// blueHead.textContent='I’m a blue h3!';
-// const container=document.createElement('div');
-// container.style="border:1px solid black;background-color:yellow;";
-// const containerHeader=document.createElement('h1');
-// containerHeader.textContent='I am in a div';
-// const reply=document.createElement('p');
-// reply.textContent='Me too!';
-// body.appendChild(greeting);
-// body.appendChild(blueHead);
-// body.appendChild(container);
-// container.appendChild(containerHeader);
-// container.appendChild(reply);
+
 
 let books=[];
 
@@ -37,10 +22,9 @@ const addNewBook=(author,title,nPages=0,isRead=false)=>{
     const newBook=new Book(author,title,nPages,isRead);
     const id=getBooksSize()+1;
     newBook.id=id;
-    newBook.markAsRead();
-    newBook.markAsUnread();
     books.push(newBook);
 }
+// findBook takes id as a parameter and loops over it, if it didn't find the book by id it will through en ERROR else return the foundBook.
 const findBook=(id)=>{
     let bookObj={};
     books.forEach((book)=>{
@@ -55,14 +39,21 @@ const deleteBook=(id)=>{
         const book=findBook(id);
         const bookIndex=books.indexOf(book);  
         books.splice(bookIndex,1);
-
     }
     catch(e){
         return e;
     }
-   
-
 }
+const markAsRead=(id)=>{
+    try{
+        const book=findBook(id);
+        book.markAsRead();
+    }
+    catch(e){
+        return e;
+    }
+}
+
 
  
 
@@ -70,8 +61,9 @@ const deleteBook=(id)=>{
 (addNewBook('amr','underwater',280,false));
 (addNewBook('amr','underwater',280,false));
 (addNewBook('amr','underwater',280,false));
-deleteBook(1);
-console.log(deleteBook(1))
+// deleteBook(1);
+// console.log(deleteBook(1))
+markAsRead(1);
 console.log(books);
 
 // console.log(findBook(0))
