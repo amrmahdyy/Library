@@ -17,7 +17,7 @@
 
 let books=[];
 
-//helper functions
+// helper function that return the books array size which will be used as a unique id
 const getBooksSize=()=>books.length;
 
 
@@ -41,8 +41,37 @@ const addNewBook=(author,title,nPages=0,isRead=false)=>{
     newBook.markAsUnread();
     books.push(newBook);
 }
+const findBook=(id)=>{
+    let bookObj={};
+    books.forEach((book)=>{
+       if(book.id==id)bookObj=book;
+    });
+    if(Object.keys(bookObj).length===0)throw new Error('Book unfound')
+    return bookObj;
+}
+// deleteBook function has id parameter then it searchs for a book with this id if found it will search also for the index then splice it which will remove it from books array in place.
+const deleteBook=(id)=>{
+    try{
+        const book=findBook(id);
+        const bookIndex=books.indexOf(book);  
+        books.splice(bookIndex,1);
+
+    }
+    catch(e){
+        return e;
+    }
+   
+
+}
+
+ 
+
 (addNewBook('amr','underwater',280,false));
 (addNewBook('amr','underwater',280,false));
 (addNewBook('amr','underwater',280,false));
 (addNewBook('amr','underwater',280,false));
-console.log(books)
+deleteBook(1);
+console.log(deleteBook(1))
+console.log(books);
+
+// console.log(findBook(0))
