@@ -12,10 +12,14 @@ body {
   margin-top: 150px;
   height: 100vh;
 }
+
 #table-content {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
+  /* border: 1px solid black; */
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
 }
 #table-content #table-head {
   background-color: #2b4141;
@@ -26,4 +30,10 @@ body {
 #table-content #table-head th {
   padding: 20px 0px;
   letter-spacing: 2px;
+}
+#table-content .row td {
+  padding: 10px 0px;
+}
+#table-content .row:nth-child(odd) {
+  background-color: rgb(218, 216, 216);
 }
