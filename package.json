@@ -1,0 +1,22 @@
+{
+  "name": "libraryapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amrmahdyy/Library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amrmahdyy/Library/issues"
+  },
+  "homepage": "https://github.com/amrmahdyy/Library#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
