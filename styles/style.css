@@ -35,5 +35,8 @@ body {
   padding: 10px 0px;
 }
 #table-content .row:nth-child(odd) {
-  background-color: rgb(218, 216, 216);
+  background-color: rgb(241, 240, 240);
+}
+#table-content .row:hover {
+  background-color: #e9e9e9;
 }
