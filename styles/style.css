@@ -45,7 +45,7 @@ body {
 #modal {
   width: 400px;
   height: 400px;
-  background-color: #333;
+  background-color: #eee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,21 +59,57 @@ form #modal input {
   padding: 8px 8px;
   border-radius: 25px;
   border: 0px;
-  border: 4px solid rgb(214, 214, 214);
+  border-bottom: 2px solid rgb(214, 214, 214);
   margin: 10px 0;
+  box-shadow: 2px 0px 2px rgb(207, 207, 207);
 }
 #book-completed > * {
   width: 50%;
 }
 #book-completed {
   width: 100%;
-  /* flex-direction: column; */
   display: flex;
-  /* flex-wrap: wrap; */
-  /* justify-content: space-around; */
-  /* display: flex; */
   text-align: center;
 }
 #book-completed #read {
+  box-shadow: none;
   width: 50%;
+}
+#add-book {
+  margin-top: 10px;
+  padding: 5px 100px;
+  background: linear-gradient(to right, #78c0e0, #356d97);
+  border: 0;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0px 5px #cbdce9;
+}
+/* #modal #header {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+} */
+#modal #header a {
+  position: relative;
+  left: 250px;
+  bottom: 43px;
+  cursor: pointer;
+  padding: 5px 8px;
+  padding-bottom: 9px;
+  border-radius: 20px;
+
+  /* left: 100px; */
+}
+#modal #header a:hover {
+  background-color: #dadbdb;
+  color: rgb(83, 82, 82);
+  transition: color 500ms, background-color 250ms ease-in;
+}
+
+i:hover {
+  transform: rotate(180deg);
+  transition: transform 250ms;
 }
