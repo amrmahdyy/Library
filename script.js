@@ -1,3 +1,33 @@
+const closeModalBtn=document.querySelector('.close-modal');
+const backgroundModal=document.querySelector('#background-modal');
+
+const closeModal=()=>{
+    backgroundModal.setAttribute('class','inactive');
+}
+window.addEventListener('click',(e)=>{
+    if(e.target.getAttribute('id')==='background-modal'){
+        closeModal();
+    }
+})
+closeModalBtn.addEventListener('click',()=>{
+    closeModal();
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 let books=[];
@@ -18,6 +48,7 @@ Book.prototype.markAsRead=function(){
 Book.prototype.markAsUnread=function(){
     this.isRead=false;
 }
+// addNewBook takes the input of books from the user, number of pages is set to 0 by defaullt and also isRead boolean is set to false.
 const addNewBook=(author,title,nPages=0,isRead=false)=>{
     const newBook=new Book(author,title,nPages,isRead);
     const id=getBooksSize()+1;
@@ -44,10 +75,20 @@ const deleteBook=(id)=>{
         return e;
     }
 }
+// function that takes an id as a paramater and then finds the book by id , each book has a function that was inseted in protoype which changes the boolean of value of read to true.
 const markAsRead=(id)=>{
     try{
         const book=findBook(id);
         book.markAsRead();
+    }
+    catch(e){
+        return e;
+    }
+}
+const markAsUnread=(id)=>{
+    try{
+        const book=findBook(id);
+        book.markAsUnread();
     }
     catch(e){
         return e;
