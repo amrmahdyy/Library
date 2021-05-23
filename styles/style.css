@@ -42,12 +42,12 @@ body {
   background-color: #dbdada;
 }
 #background-modal {
-  position: fixed;
-  /* opacity: 0.7; */
-  /* z-index: -1; */
-  background-color: rgba(207, 207, 207, 0.5);
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,9 +61,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border: 1px solid rgb(187, 185, 185);
+  border-radius: 20px;
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
+  border: 1px solid rgb(184, 183, 183);
 }
 /* form #modal > * {
   display: block;
@@ -97,6 +98,8 @@ form #modal input {
   margin-top: 10px;
   padding: 5px 100px;
   background: linear-gradient(to right, #78c0e0, #356d97);
+  opacity: 1;
+  transition: opacity 250ms ease-out;
   border: 0;
   border-radius: 25px;
   cursor: pointer;
