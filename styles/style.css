@@ -5,7 +5,7 @@ body {
   font-weight: 500;
 }
 #container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -17,6 +17,7 @@ body {
   width: 100%;
   text-align: center;
   border-collapse: collapse;
+  margin: 0px 10px;
   /* border: 1px solid black; */
   overflow: hidden;
   border-radius: 10px 10px 0 0;
@@ -70,7 +71,6 @@ body {
   height: 100vh;
   width: 100vw;
   top: 0;
-  /* transition: background-color 250ms; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,20 +91,30 @@ body {
   width: 400px;
   height: 400px;
   background-color: #eee;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  border-radius: 20px;
+  border: 1px solid rgb(184, 183, 183);
+}
+#modal #header {
+  display: flex;
+  justify-content: center;
+  /* display: inline; */
+  /* align-items: center; */
+}
+#modal #header div {
+  position: relative;
+  top: 18px;
+  left: 100px;
+}
+#modal form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
-  /* border-top-left-radius: 20px;
-  border-top-right-radius: 20px; */
-  border: 1px solid rgb(184, 183, 183);
 }
-/* form #modal > * {
-  display: block;
-} */
-
-form #modal input {
-  width: 70%;
+#modal form input {
+  width: 80%;
   padding: 8px 8px;
   border-radius: 25px;
   border: 0px;
@@ -145,12 +155,8 @@ form #modal input {
   opacity: 0.85;
   transition: opacity 250ms ease-in-out;
 }
-/* #modal #header {
-  width: 400px;
-  display: flex;
-  justify-content: center;
-} */
-#modal #header a {
+
+/* #modal #header a {
   position: relative;
   left: 250px;
   bottom: 43px;
@@ -158,9 +164,7 @@ form #modal input {
   padding: 5px 8px;
   padding-bottom: 9px;
   border-radius: 20px;
-
-  /* left: 100px; */
-}
+} */
 #modal #header a:hover {
   background-color: #dadbdb;
   color: rgb(83, 82, 82);

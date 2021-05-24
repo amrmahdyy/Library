@@ -1,6 +1,23 @@
 const closeModalBtn=document.querySelector('.close-modal');
 const addBookBtn=document.querySelector('#add-book-btn');
+const addBookModalBtn=document.querySelector('#add-book');
 const backgroundModal=document.querySelector('.background-modal');
+const bookName=document.querySelector('#book');
+const form=document.forms.bookForm;
+addBookModalBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    console.log(form);
+    console.log(bookName.value)
+    const formData=new FormData(form);
+    console.log(formData.get('bookName'))
+
+})
+
+// const nums=[1,2,3,4];
+// const sum=nums.reduce((total,current)=>{
+//     return total+current;
+// })
+// console.log(sum)
 
 const closeModal=()=>{
     backgroundModal.setAttribute('id','inactive');

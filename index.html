@@ -54,26 +54,29 @@
      <a id="add-book-btn">ADD</a>
 
 
-    <div id="inactive"  class="background-modal">
-       <form action="">
+    <div id="active"  class="background-modal">
+
             <div id="modal">
                 <div id="header">
                     <h4>Enter Book Information</h4>
-                    <a title="close" class="close-modal"><i class="far fa-window-close"></i></a>
+                   <div> <a title="close" class="close-modal"><i class="far fa-window-close"></i></a></div>
                 </div>
+                <form  id="bookForm">
                 <label for="book">Book Name</label>
-                <input type="text" maxlength="30" placeholder="Book name"  id="book">
+                <input type="text" value="" name="bookName" placeholder="Book name"  id="book" required>
                 <label for="pages">Number of Pages</label>
-                <input type="number" max="100000" placeholder="Number Of Pages" id="pages">
+                <input type="number" max="100000"
+                required placeholder="Number Of Pages" id="pages">
                 <label for="author">Author</label>
-                <input type="text" maxlength="30" placeholder="Enter Author Name" id="author">
+                <input type="text"  placeholder="Enter Author Name" id="author">
                <div id="book-completed">
                 <label for="read">Book completed</label>
                 <input type="checkbox" name="read" value="true" id="read">
                </div>
-               <button id="add-book">Add</button>
+               <input type="submit"  id="add-book"></input>
+            </form>
             </div>
-       </form>
+  
     </div>
 
 </div>
