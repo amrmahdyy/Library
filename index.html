@@ -22,7 +22,7 @@
             <th>Read</th>
             <th>Delete</th>
         </tr>
-        <tr class="row">
+        <!-- <tr class="row">
             <td>Javascript</td>
             <td>Javascript</td>
             <td>Javascript</td>
@@ -49,7 +49,7 @@
             <td>Javascript</td>
             <td>Javascript</td>
             <td><button>X</button></td>
-        </tr>
+        </tr> -->
      </table>
      <a id="add-book-btn">ADD</a>
 
@@ -63,12 +63,12 @@
                 </div>
                 <form  id="bookForm">
                 <label for="book">Book Name</label>
-                <input type="text" value="" name="bookName" placeholder="Book name"  id="book" required>
+                <input type="text" value="" name="bookName" placeholder="Book name"  id="book" >
                 <label for="pages">Number of Pages</label>
                 <input type="number" max="100000"
-                required placeholder="Number Of Pages" id="pages">
+                 placeholder="Number Of Pages" id="pages" name="pages">
                 <label for="author">Author</label>
-                <input type="text"  placeholder="Enter Author Name" id="author">
+                <input type="text" name="author"  placeholder="Enter Author Name" id="author">
                <div id="book-completed">
                 <label for="read">Book completed</label>
                 <input type="checkbox" name="read" value="true" id="read">

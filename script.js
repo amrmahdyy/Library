@@ -4,20 +4,52 @@ const addBookModalBtn=document.querySelector('#add-book');
 const backgroundModal=document.querySelector('.background-modal');
 const bookName=document.querySelector('#book');
 const form=document.forms.bookForm;
+const tableContent=document.querySelector('#table-content');
+
+const insertNewBookInTable=(bookInfo={})=>{
+    const newRow=document.createElement('tr');
+newRow.setAttribute('class','row');
+const book=document.createElement('td');
+const author=document.createElement('td');
+const pages=document.createElement('td');
+const read=document.createElement('td');
+const deleteBtn=document.createElement('td');
+
+const btn=document.createElement('button');
+btn.textContent='X';
+deleteBtn.appendChild(btn);
+
+book.textContent=bookInfo.book;
+author.textContent=bookInfo.author;
+pages.textContent=bookInfo.pages;
+read.textContent=bookInfo.read;
+
+newRow.appendChild(book);
+newRow.appendChild(author);
+newRow.appendChild(pages);
+newRow.appendChild(read);
+newRow.appendChild(deleteBtn);
+
+tableContent.appendChild(newRow);
+}
+
+
+
 addBookModalBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     console.log(form);
     console.log(bookName.value)
     const formData=new FormData(form);
-    console.log(formData.get('bookName'))
+    const inputNames=['bookName','author','pages','read'];
+    let inputData={};
+    inputNames.forEach((elem)=>{
+        inputData[elem]=formData.get(elem);
+    });
+    inputData.read=inputData.read==='true'?true:false;
+    addNewBook(inputData.author,inputData.bookName,inputData.pages,inputData.read);
+});
 
-})
 
-// const nums=[1,2,3,4];
-// const sum=nums.reduce((total,current)=>{
-//     return total+current;
-// })
-// console.log(sum)
 
 const closeModal=()=>{
     backgroundModal.setAttribute('id','inactive');
@@ -60,24 +92,25 @@ let books=[];
 const getBooksSize=()=>books.length;
 
 
-function Book(author,title,nPages,isRead){
+function Book(author,book,pages,read){
     this.author=author;
-    this.title=title;
-    this.nPages=nPages;
-    this.isRead=isRead;
+    this.book=book;
+    this.pages=pages;
+    this.read=read;
 }
 Book.prototype.markAsRead=function(){
-    this.isRead=true;
+    this.read=true;
 }
 Book.prototype.markAsUnread=function(){
-    this.isRead=false;
+    this.read=false;
 }
-// addNewBook takes the input of books from the user, number of pages is set to 0 by defaullt and also isRead boolean is set to false.
-const addNewBook=(author,title,nPages=0,isRead=false)=>{
-    const newBook=new Book(author,title,nPages,isRead);
+// addNewBook takes the input of books from the user, number of pages is set to 0 by defaullt and also read boolean is set to false.
+const addNewBook=(author,book,pages=0,read=false)=>{
+    const newBook=new Book(author,book,pages,read);
     const id=getBooksSize()+1;
     newBook.id=id;
     books.push(newBook);
+    insertNewBookInTable(newBook);
 }
 // findBook takes id as a parameter and loops over it, if it didn't find the book by id it will through en ERROR else return the foundBook.
 const findBook=(id)=>{
@@ -121,11 +154,12 @@ const markAsUnread=(id)=>{
 
 
  
-
-(addNewBook('amr','underwater',280,false));
-(addNewBook('amr','underwater',280,false));
-(addNewBook('amr','underwater',280,false));
-(addNewBook('amr','underwater',280,false));
+// let newBook_s={book:'Lolo',author:'amr',pages:200,read:true};
+// insertNewBookInTable(newBook_s);
+// (addNewBook('amr','underwater',280,false));
+// (addNewBook('amr','underwater',280,false));
+// (addNewBook('amr','underwater',280,false));
+// (addNewBook('amr','underwater',280,false));
 // deleteBook(1);
 // console.log(deleteBook(1))
 markAsRead(1);
