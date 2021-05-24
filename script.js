@@ -1,16 +1,23 @@
 const closeModalBtn=document.querySelector('.close-modal');
-const backgroundModal=document.querySelector('#background-modal');
+const addBookBtn=document.querySelector('#add-book-btn');
+const backgroundModal=document.querySelector('.background-modal');
 
 const closeModal=()=>{
-    backgroundModal.setAttribute('class','inactive');
+    backgroundModal.setAttribute('id','inactive');
+}
+const openModal=()=>{
+    backgroundModal.setAttribute('id','active');
 }
 window.addEventListener('click',(e)=>{
-    if(e.target.getAttribute('id')==='background-modal'){
+    if(e.target.getAttribute('class')==='background-modal'){
         closeModal();
     }
 })
 closeModalBtn.addEventListener('click',()=>{
     closeModal();
+})
+addBookBtn.addEventListener('click',()=>{
+    openModal();
 })
 
 

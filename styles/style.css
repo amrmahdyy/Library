@@ -41,21 +41,47 @@ body {
 #table-content .row:hover {
   background-color: #dbdada;
 }
-#background-modal {
-  visibility: visible;
+#add-book-btn {
+  position: fixed;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  bottom: 0;
+  right: 0;
+  height: 70px;
+  width: 70px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 250ms ease-out, color 250ms ease-out;
+  background: linear-gradient(to bottom right, #78c0e0, #356d97);
+}
+#add-book-btn:hover {
+  color: #eee;
+  opacity: 0.9;
+  transition: opacity 250ms ease-in, color 250ms ease-in;
+}
+.background-modal {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.4);
   height: 100vh;
   width: 100vw;
   top: 0;
-
+  /* transition: background-color 250ms; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2;
 }
-.inactive {
+#active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 250ms ease-in, visibility 250ms ease-in;
+}
+#inactive {
   opacity: 0;
   visibility: hidden;
   transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
