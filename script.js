@@ -5,9 +5,11 @@ const backgroundModal=document.querySelector('.background-modal');
 const bookName=document.querySelector('#book');
 const form=document.forms.bookForm;
 const tableContent=document.querySelector('#table-content');
+// const deleteBook=document.querySelector('')
 
 const insertNewBookInTable=(bookInfo={})=>{
     const newRow=document.createElement('tr');
+    newRow.setAttribute('data-id',bookInfo.id);
 newRow.setAttribute('class','row');
 const book=document.createElement('td');
 const author=document.createElement('td');
@@ -16,13 +18,14 @@ const read=document.createElement('td');
 const deleteBtn=document.createElement('td');
 
 const btn=document.createElement('button');
+btn.classList.add('delete-book');
 btn.textContent='X';
 deleteBtn.appendChild(btn);
 
 book.textContent=bookInfo.book;
 author.textContent=bookInfo.author;
 pages.textContent=bookInfo.pages;
-read.textContent=bookInfo.read;
+read.textContent=bookInfo.read?'Yes':'No';
 
 newRow.appendChild(book);
 newRow.appendChild(author);
@@ -35,7 +38,7 @@ tableContent.appendChild(newRow);
 
 
 
-addBookModalBtn.addEventListener('click',(e)=>{
+form.addEventListener('submit',(e)=>{
     e.preventDefault();
     console.log(form);
     console.log(bookName.value)
@@ -46,20 +49,29 @@ addBookModalBtn.addEventListener('click',(e)=>{
         inputData[elem]=formData.get(elem);
     });
     inputData.read=inputData.read==='true'?true:false;
+    for(let key in inputData)inputData[key]=(inputData[key]===''?'NA':inputData[key]);
+    console.log(inputData);
     addNewBook(inputData.author,inputData.bookName,inputData.pages,inputData.read);
+    closeModal();
 });
 
 
 
 const closeModal=()=>{
     backgroundModal.setAttribute('id','inactive');
+    // const inactive=document.querySelector('#inactve');
+    backgroundModal.style.transition='opacity 250ms ease-in-out, visibility 250ms ease-in-out';
 }
 const openModal=()=>{
     backgroundModal.setAttribute('id','active');
 }
+
 window.addEventListener('click',(e)=>{
     if(e.target.getAttribute('class')==='background-modal'){
         closeModal();
+    }
+    if(e.target.getAttribute('class')==='delete-book'){
+        console.log('book deleted!');
     }
 })
 closeModalBtn.addEventListener('click',()=>{
@@ -68,15 +80,6 @@ closeModalBtn.addEventListener('click',()=>{
 addBookBtn.addEventListener('click',()=>{
     openModal();
 })
-
-
-
-
-
-
-
-
-
 
 
 

@@ -3,6 +3,18 @@ body {
   padding: 0;
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
+  /* z-index: 2; */
+}
+#top-svg-bg {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+#bottom-svg-bg {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 #container {
   max-width: 1200px;
@@ -33,6 +45,8 @@ body {
   letter-spacing: 2px;
 }
 #table-content .row td {
+  max-width: 80px;
+  word-wrap: break-word;
   padding: 10px 0px;
   border-bottom: 1px solid rgb(207, 206, 206);
 }
@@ -84,7 +98,6 @@ body {
 #inactive {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
 }
 
 #modal {

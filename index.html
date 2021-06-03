@@ -13,6 +13,7 @@
    
 </head>
 <body>
+  
     <div id="container">
     <table id="table-content">
         <tr id="table-head">
@@ -54,21 +55,21 @@
      <a id="add-book-btn">ADD</a>
 
 
-    <div id="active"  class="background-modal">
+    <div id="inactive"  class="background-modal">
 
             <div id="modal">
                 <div id="header">
                     <h4>Enter Book Information</h4>
                    <div> <a title="close" class="close-modal"><i class="far fa-window-close"></i></a></div>
                 </div>
-                <form  id="bookForm">
+                <form  id="bookForm" >
                 <label for="book">Book Name</label>
-                <input type="text" value="" name="bookName" placeholder="Book name"  id="book" >
+                <input type="text" required minlength="2" maxlength="30" value="" name="bookName" placeholder="Book name"  id="book" >
                 <label for="pages">Number of Pages</label>
-                <input type="number" max="100000"
+                <input type="number" min="1" max="9999"
                  placeholder="Number Of Pages" id="pages" name="pages">
                 <label for="author">Author</label>
-                <input type="text" name="author"  placeholder="Enter Author Name" id="author">
+                <input type="text" minlength="2" maxlength="10" name="author"  placeholder="Enter Author Name" id="author">
                <div id="book-completed">
                 <label for="read">Book completed</label>
                 <input type="checkbox" name="read" value="true" id="read">
@@ -80,7 +81,8 @@
     </div>
 
 </div>
-    
+<!-- <img id="top-svg-bg" src="./imgs/bg-pattern-top-desktop.svg" alt="">
+<img id="bottom-svg-bg" src="./imgs/bg-pattern-bottom-desktop.svg" alt=""> -->
 
 
 
