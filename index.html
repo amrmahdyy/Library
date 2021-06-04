@@ -10,10 +10,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Library</title>
+
+    <style>
+        /* #arrow-down{
+            height: 0;
+            width: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid black;
+        }
+        #header p{
+            background-color: #333;
+            display: inline-block;
+            color: white;
+            padding: 20px 0px;
+            margin-left: 20px;
+        }
+        #header p::before{
+            content: "AMR ";
+        } */
+        #welcome{
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        #welcome::before{
+            content: "";
+            margin: 0px 5px 10px 0px;
+            background-color: #333;
+            height: 4px;
+            width: 20%;
+            max-width: 200px;
+            display: inline-block;
+        }
+        #welcome::after{
+            content: "";
+            width: 20%;
+            height: 4px;
+            background-color: #333;
+            margin: 0px 5px 10px 5px;
+            display: inline-block;
+        }
+    </style>
    
 </head>
 <body>
-  
+   <h1 id="welcome">Library Manager</h1>
+  <!-- <div id="header">
+      <p>Lorem, ipsum.</p>
+  </div> -->
     <div id="container">
     <table id="table-content">
         <tr id="table-head">
@@ -64,7 +108,7 @@
                 </div>
                 <form  id="bookForm" >
                 <label for="book">Book Name</label>
-                <input type="text" required minlength="2" maxlength="30" value="" name="bookName" placeholder="Book name"  id="book" >
+                <input type="text" required minlength="2" maxlength="30"  name="bookName" placeholder="Book name"  id="book" >
                 <label for="pages">Number of Pages</label>
                 <input type="number" min="1" max="9999"
                  placeholder="Number Of Pages" id="pages" name="pages">

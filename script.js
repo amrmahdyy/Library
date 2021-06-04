@@ -17,10 +17,10 @@ const pages=document.createElement('td');
 const read=document.createElement('td');
 const deleteBtn=document.createElement('td');
 
-const btn=document.createElement('button');
-btn.classList.add('delete-book');
-btn.textContent='X';
-deleteBtn.appendChild(btn);
+const deleteIcon=document.createElement('a');
+deleteIcon.classList.add('delete-book');
+deleteIcon.innerHTML=`<i style="color:#C3423F;" class="far fa-trash-alt fa-lg delete-book"></i>`;
+deleteBtn.appendChild(deleteIcon);
 
 book.textContent=bookInfo.book;
 author.textContent=bookInfo.author;
@@ -52,10 +52,20 @@ form.addEventListener('submit',(e)=>{
     for(let key in inputData)inputData[key]=(inputData[key]===''?'NA':inputData[key]);
     console.log(inputData);
     addNewBook(inputData.author,inputData.bookName,inputData.pages,inputData.read);
+    clearInputs();
     closeModal();
 });
 
 
+// clear inputs after saving the book
+const clearInputs=()=>{
+    const inputs=document.querySelectorAll('form input');
+    inputs.forEach((input)=>{
+        let type=input.getAttribute('type');
+        if(type!=='checkbox' && type!=='submit')
+            input.value='';
+    })
+}
 
 const closeModal=()=>{
     backgroundModal.setAttribute('id','inactive');
@@ -70,8 +80,12 @@ window.addEventListener('click',(e)=>{
     if(e.target.getAttribute('class')==='background-modal'){
         closeModal();
     }
-    if(e.target.getAttribute('class')==='delete-book'){
-        console.log('book deleted!');
+    if(e.target.classList.contains('delete-book')){
+        const bookRow=e.target.parentElement.parentElement.parentElement;
+        console.log(bookRow);
+        const bookId=bookRow.getAttribute('data-id');
+        console.log(bookId);
+        deleteBook(bookRow,bookId);
     }
 })
 closeModalBtn.addEventListener('click',()=>{
@@ -92,7 +106,8 @@ addBookBtn.addEventListener('click',()=>{
 let books=[];
 
 // helper function that return the books array size which will be used as a unique id
-const getBooksSize=()=>books.length;
+// const getBooksSize=()=>books.length;
+let idCounter=0;
 
 
 function Book(author,book,pages,read){
@@ -107,10 +122,21 @@ Book.prototype.markAsRead=function(){
 Book.prototype.markAsUnread=function(){
     this.read=false;
 }
+
+const deleteRow=(rowNode)=>{
+    rowNode.remove();
+}
+// updatTable function used to update the books after deleting a book so it can be removed from the table
+// const updateTable=(booksAr=[])=>{
+//     clearTable();
+//     booksArr.forEach((book)=>{
+//         insertNewBookInTable(book);
+//     })
+// }
 // addNewBook takes the input of books from the user, number of pages is set to 0 by defaullt and also read boolean is set to false.
 const addNewBook=(author,book,pages=0,read=false)=>{
     const newBook=new Book(author,book,pages,read);
-    const id=getBooksSize()+1;
+    const id=++idCounter;
     newBook.id=id;
     books.push(newBook);
     insertNewBookInTable(newBook);
@@ -125,11 +151,15 @@ const findBook=(id)=>{
     return bookObj;
 }
 // deleteBook function has id parameter then it searchs for a book with this id if found it will search also for the index then splice it which will remove it from books array in place.
-const deleteBook=(id)=>{
+const deleteBook=(rowNode,id)=>{
     try{
         const book=findBook(id);
-        const bookIndex=books.indexOf(book);  
+        console.log(book);
+        const bookIndex=books.indexOf(book); 
+        console.log(books); 
         books.splice(bookIndex,1);
+        console.log(books);
+        deleteRow(rowNode);
     }
     catch(e){
         return e;
