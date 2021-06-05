@@ -11,46 +11,6 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Library</title>
 
-    <style>
-        /* #arrow-down{
-            height: 0;
-            width: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 15px solid black;
-        }
-        #header p{
-            background-color: #333;
-            display: inline-block;
-            color: white;
-            padding: 20px 0px;
-            margin-left: 20px;
-        }
-        #header p::before{
-            content: "AMR ";
-        } */
-        #welcome{
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        #welcome::before{
-            content: "";
-            margin: 0px 5px 10px 0px;
-            background: linear-gradient(to  right,#7af5b7,#5BC0EB);
-            height: 4px;
-            width: 20%;
-            max-width: 200px;
-            display: inline-block;
-        }
-        #welcome::after{
-            content: "";
-            width: 20%;
-            height: 4px;
-            background: linear-gradient(to  right,#5BC0EB,#7af5b7);
-            margin: 0px 5px 10px 5px;
-            display: inline-block;
-        }
-    </style>
    
 </head>
 <body>
@@ -67,34 +27,7 @@
             <th>Read</th>
             <th>Delete</th>
         </tr>
-        <!-- <tr class="row">
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td><button>X</button></td>
-        </tr>
-        <tr class="row">
-            <td>Lorem </td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td><button>X</button></td>
-        </tr>
-        <tr class="row">
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td><button>X</button></td>
-        </tr>
-        <tr class="row">
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td>Javascript</td>
-            <td><button>X</button></td>
-        </tr> -->
+   
      </table>
      <a id="add-book-btn">ADD</a>
 
@@ -102,10 +35,13 @@
     <div id="inactive"  class="background-modal">
 
             <div id="modal">
+
                 <div id="header">
-                    <h4>Enter Book Information</h4>
-                   <div> <a title="close" class="close-modal"><i class="far fa-window-close"></i></a></div>
+                    <h3>Enter book</h3>
+                    <a title="close" class="close-modal"><i class="far fa-window-close"></i></a>
                 </div>
+                
+            
                 <form  id="bookForm" >
                 <label for="book">Book Name</label>
                 <input type="text" required minlength="2" maxlength="30"  name="bookName" placeholder="Book name"  id="book" >
@@ -125,8 +61,7 @@
     </div>
 
 </div>
-<!-- <img id="top-svg-bg" src="./imgs/bg-pattern-top-desktop.svg" alt="">
-<img id="bottom-svg-bg" src="./imgs/bg-pattern-bottom-desktop.svg" alt=""> -->
+
 
 
 

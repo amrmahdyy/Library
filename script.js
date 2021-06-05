@@ -40,8 +40,7 @@ tableContent.appendChild(newRow);
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
-    console.log(form);
-    console.log(bookName.value)
+
     const formData=new FormData(form);
     const inputNames=['bookName','author','pages','read'];
     let inputData={};
@@ -50,7 +49,7 @@ form.addEventListener('submit',(e)=>{
     });
     inputData.read=inputData.read==='true'?true:false;
     for(let key in inputData)inputData[key]=(inputData[key]===''?'NA':inputData[key]);
-    console.log(inputData);
+
     addNewBook(inputData.author,inputData.bookName,inputData.pages,inputData.read);
     clearInputs();
     closeModal();
@@ -82,9 +81,7 @@ window.addEventListener('click',(e)=>{
     }
     if(e.target.classList.contains('delete-book')){
         const bookRow=e.target.parentElement.parentElement.parentElement;
-        console.log(bookRow);
         const bookId=bookRow.getAttribute('data-id');
-        console.log(bookId);
         deleteBook(bookRow,bookId);
     }
 })
@@ -154,11 +151,10 @@ const findBook=(id)=>{
 const deleteBook=(rowNode,id)=>{
     try{
         const book=findBook(id);
-        console.log(book);
+      
         const bookIndex=books.indexOf(book); 
-        console.log(books); 
+
         books.splice(bookIndex,1);
-        console.log(books);
         deleteRow(rowNode);
     }
     catch(e){
@@ -195,7 +191,6 @@ const markAsUnread=(id)=>{
 // (addNewBook('amr','underwater',280,false));
 // deleteBook(1);
 // console.log(deleteBook(1))
-markAsRead(1);
-console.log(books);
+
 
 // console.log(findBook(0))
