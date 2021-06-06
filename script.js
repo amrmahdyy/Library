@@ -68,7 +68,7 @@ const clearInputs=()=>{
         let type=input.getAttribute('type');
         if(type!=='checkbox' && type!=='submit')
             input.value='';
-        else if(type==='checkbox')console.log(input.value)
+        
     })
 }
 
