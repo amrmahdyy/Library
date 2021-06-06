@@ -216,13 +216,13 @@ body {
   margin: 0px 5px 10px 0px;
   background: linear-gradient(to right, #7af5b7, #5bc0eb);
   height: 4px;
-  width: 20%;
+  width: 170px;
   max-width: 200px;
   display: inline-block;
 }
 #welcome::after {
   content: "";
-  width: 20%;
+  width: 170px;
   height: 4px;
   background: linear-gradient(to right, #5bc0eb, #7af5b7);
   margin: 0px 5px 10px 5px;
@@ -236,9 +236,11 @@ body {
 
   #welcome::before {
     margin: 0px 5px 5px 0px;
+    width: 65px;
   }
   #welcome::after {
-    margin: 0px 5px 5px 2px;
+    margin: 0px 5px 4px 2px;
+    width: 65px;
   }
 
   #modal {
@@ -259,10 +261,12 @@ body {
     }
 
     #welcome::before {
-      margin: 0px 5px 5px 0px;
+      margin: 0px 5px 2px 0px;
+      width: 40px;
     }
     #welcome::after {
-      margin: 0px 5px 5px 2px;
+      margin: 0px 5px 2px 2px;
+      width: 40px;
     }
 
     #modal {

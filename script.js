@@ -5,7 +5,11 @@ const backgroundModal=document.querySelector('.background-modal');
 const bookName=document.querySelector('#book');
 const form=document.forms.bookForm;
 const tableContent=document.querySelector('#table-content');
-// const deleteBook=document.querySelector('')
+
+
+
+
+
 
 const insertNewBookInTable=(bookInfo={})=>{
     const newRow=document.createElement('tr');
@@ -35,6 +39,7 @@ newRow.appendChild(deleteBtn);
 
 tableContent.appendChild(newRow);
 }
+
 
 
 
@@ -94,17 +99,34 @@ addBookBtn.addEventListener('click',()=>{
 
 
 
+let myStorage=window.localStorage;
+
+// updating localStorage
+const updateLocalStorage=(booksArr,id)=>{
+myStorage.setItem('bookId',id);
+myStorage.setItem('booksArr',JSON.stringify(booksArr))
+}
+// returning localStorage values in an object with parsed array and number
+const getLocalStorage=()=>{
+    let id=myStorage.getItem('bookId');
+    id=id===null?null:Number.parseInt(id);
+    const booksArr=JSON.parse(myStorage.getItem('booksArr'));
+    return{
+        id,
+        booksArr
+    }
+}
 
 
 
 
 
+let books=getLocalStorage().booksArr===null?[]:getLocalStorage().booksArr;
 
-let books=[];
 
-// helper function that return the books array size which will be used as a unique id
-// const getBooksSize=()=>books.length;
-let idCounter=0;
+
+console.log(getLocalStorage().id==null);
+let idCounter=getLocalStorage().id===null?0:getLocalStorage().id;
 
 
 function Book(author,book,pages,read){
@@ -137,6 +159,7 @@ const addNewBook=(author,book,pages=0,read=false)=>{
     newBook.id=id;
     books.push(newBook);
     insertNewBookInTable(newBook);
+    updateLocalStorage(books,idCounter);
 }
 // findBook takes id as a parameter and loops over it, if it didn't find the book by id it will through en ERROR else return the foundBook.
 const findBook=(id)=>{
@@ -156,6 +179,8 @@ const deleteBook=(rowNode,id)=>{
 
         books.splice(bookIndex,1);
         deleteRow(rowNode);
+        console.log(books)
+        updateLocalStorage(books,idCounter);
     }
     catch(e){
         return e;
@@ -180,6 +205,16 @@ const markAsUnread=(id)=>{
         return e;
     }
 }
+
+const updateTable=()=>{
+    if(getLocalStorage().booksArr!==null){
+    let books=getLocalStorage().booksArr;
+    books.forEach((book)=>{
+        insertNewBookInTable(book);
+    })
+}
+}
+updateTable();
 
 
  
